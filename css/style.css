@@ -1,0 +1,250 @@
+/* TODO: 1 list-style:none */
+
+li {
+    list-style: none;
+}
+
+/* TODO: 2 * 全部值設定 */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    padding-top: 67px;
+    /* max-width: 1400px; */
+    height: 1000px;
+}
+
+/* TODO: 3 navbar設定 */
+.navbar {
+    background: rgb(75, 75, 75);
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+
+/* TODO: 4 .logo 設定 */
+.logo {
+    color: white;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    /* transparent 透明 */
+    /* border-bottom: 5px solid transparent; */
+}
+
+.logo-name {
+    margin-left: 20%;
+}
+
+/* TODO: 5 ul設定  */
+
+ul {
+    display: flex;
+    align-items: center;
+}
+
+/* TODO: 6 li設定 透明線 */
+
+li {
+    border-bottom: 5px solid transparent;
+}
+
+/* TODO: 7 li a 設定 */
+
+li a {
+    text-decoration: none;
+    display: block;
+    color: white;
+    padding: 10px;
+}
+
+/* TODO: 8 補充:visited 已造訪過樣式  :active 按下時的樣式 */
+li a:active {
+    color: tomato;
+}
+
+/* TODO: 9 svg 填色 fill：white */
+.menu {
+    fill: white;
+    scale: 2;
+}
+
+/* TODO: 10 動畫 */
+
+li:hover {
+    border-bottom: 5px solid white;
+    /* 轉場: 屬性 轉換時間 延遲執行時間 速度 */
+    transition: all .4s 0s ease-in;
+    /* transition: border-bottom .5s ease-in-out; */
+
+    /* 動畫名稱 */
+    animation-name: lenth-transport;
+    /*  經過幾秒鐘 */
+    animation-duration: 1s;
+}
+
+/* TODO: 11 @media screen and (min-width:___px)  and (max-width:___px) */
+/* 
+裝置螢幕寬度
+phone 手機 480px     直.col/  橫向.col-sm 576px
+tablet 平板 768px    直.col-md/ 橫向.col-lg 992px
+laptop 筆電 1024px
+desktop 桌機 1200px  橫向.col-xl
+*/
+
+/* 0~540px 顯示此畫面 */
+@media screen and (max-width:540px) {
+    .menu:checked>.navbar .dropdownMenu {
+        left: 0;
+    }
+
+    .dropdownMenu {
+        flex-direction: column;
+        justify-content: center;
+        position: absolute;
+        top: 0;
+        right: -540px;
+        background-color: rgb(75, 75, 75);
+        width: 100%;
+        color: white;
+        padding-top: 50px;
+        transition: .7s;
+    }
+
+    ul .close {
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        line-height: 30px;
+        border-radius: 50%;
+        position: absolute;
+        right: 40px;
+        top: 20px;
+    }
+
+    ul .close:hover {
+        background-color: rgb(224, 224, 224);
+    }
+
+    .work-sample:hover .dropdown {
+        visibility: hidden;
+    }
+
+    .navbar li {
+        border-bottom: none;
+        padding: 6px;
+    }
+
+    .navbar li:hover {
+        background-color: lightcoral;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        border-bottom: none;
+    }
+
+    .logo-name {
+        display: none;
+        margin-bottom: 0;
+    }
+
+
+}
+
+/* 541px~767px */
+@media screen and (min-width:541px) and (max-width:767px) {
+
+    ul {
+        display: none;
+    }
+
+}
+
+/* 768~1023 */
+@media screen and (min-width:768px)and (max-width:1023px) {
+    ul {
+        visibility: visible;
+    }
+
+    .menu,
+    .close {
+        /* 不希望出現空格 */
+        display: none;
+    }
+
+    .meun:hover {
+        width: 100%;
+    }
+
+}
+
+/* 1024 */
+@media screen and (min-width:1024px) {
+
+    .menu,
+    .close {
+        /* 不希望出現空格 */
+        display: none;
+    }
+
+    li {
+        padding: 0 10px;
+    }
+}
+
+
+/* TODO: 額外 */
+header {
+    width: 100%;
+    background-color: rgb(167, 167, 167);
+    height: 50vh;
+    background: url('https://picsum.photos/900/900/?random=11') no-repeat;
+    background-position: bottom;
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header h1 {
+    color: white;
+}
+
+.work-sample {
+    position: relative;
+    /* border: 1px solid; */
+}
+
+.dropdown {
+    position: absolute;
+    top: 42px;
+    left: 0px;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(117, 116, 116);
+    display: none;
+}
+
+.work-sample:hover>.dropdown {
+    display: block;
+}
+
+.work-sample:hover>.dropdown li:hover {
+    background-color: lightsalmon;
+    border-bottom: 5px solid transparent;
+}
+
+h1 {
+    position: absolute;
+}
